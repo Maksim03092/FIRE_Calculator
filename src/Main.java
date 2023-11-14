@@ -19,7 +19,6 @@ public class Main {
 
 //    Поиск максимизированного процента изъятия
 public static double findingTheMaximizedWithdrawalPercentage (int startYear){
-
     double sumOfMoney, percentageOfWithdrawal = 0;
 
     while (percentageOfWithdrawal <= 100) {
