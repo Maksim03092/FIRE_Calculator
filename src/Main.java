@@ -39,7 +39,7 @@ public class Main {
 
         for (int index = startYear; index < 20; index++) {
             realProfitability = calculationOfNominalProfitability(Constants.MOEX_RATE[index],
-                    Constants.MOEX_RATE[index + 1]);
+                                                                  Constants.MOEX_RATE[index + 1]);
             sumOfMoney -= percentageOfWithdrawal;
             percentageOfWithdrawal *= 1 + (Constants.INFLATION_RATE[index] / 100);
             sumOfMoney *= 1 + realProfitability;
