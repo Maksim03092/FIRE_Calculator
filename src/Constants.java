@@ -1,5 +1,4 @@
 public class Constants {
-
     public static final double[] MOEX_RATE = {
             417.42,
             673.72,
@@ -23,6 +22,7 @@ public class Constants {
             6731.43,
             4170.35
     };
+
     //Инфляция с 2002 по 2022 сверху вниз
     public static final double[] INFLATION_RATE = {
             15.06,
@@ -47,4 +47,5 @@ public class Constants {
             8.39,
             11.92,
     };
+
 }
