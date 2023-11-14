@@ -23,7 +23,6 @@ public class Main {
 
         while (percentageOfWithdrawal <= 100) {
             sumOfMoney = calculationOfTheRemainingBalance(startYear, percentageOfWithdrawal);
-
             if (sumOfMoney < 0) {
                 break;
             }
