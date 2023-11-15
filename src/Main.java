@@ -9,6 +9,7 @@ public class Main {
     private static final double MINIMUM_WITHDRAWAL_PERCENTAGE = 0;
     private static final double MAXIMUM_WITHDRAWAL_PERCENTAGE = 100;
     private static final double WITHDRAWAL_PERCENTAGE_CHANGE_COEFFICIENT = 0.5;
+
     public static void main(String[] args) throws WrongYearException {
         String year = SCANNER.next();
         SCANNER.close();
