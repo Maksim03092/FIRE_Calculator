@@ -9,6 +9,7 @@ public class Main {
     private static final double MINIMUM_WITHDRAWAL_PERCENTAGE = 0;
     private static final double MAXIMUM_WITHDRAWAL_PERCENTAGE = 100;
     private static final double WITHDRAWAL_PERCENTAGE_CHANGE_COEFFICIENT = 0.5;
+    private static final int PERCENTAGE_100 = 100;
 
     public static void main(String[] args) throws WrongYearException {
         String year = SCANNER.next();
@@ -50,15 +51,24 @@ public class Main {
                                                            double percentageOfWithdrawal) {
         double realProfitability, sumOfMoney = MAXIMUM_SUM_OF_MONEY;
 
-        for (int index = yearOfTheBeginningOfLifeOnInterest; index < 20; index++) {
+        for (int index = yearOfTheBeginningOfLifeOnInterest; index < Constants.MOEX_RATE .length - 1; index++) {
             realProfitability = calculationOfNominalProfitability(Constants.MOEX_RATE[index],
                                                                   Constants.MOEX_RATE[index + 1]);
             sumOfMoney -= percentageOfWithdrawal;
-            percentageOfWithdrawal *= 1 + (Constants.INFLATION_RATE[index] / 100);
+            percentageOfWithdrawal *= 1 + calculationOfTheInflationCoefficient(index);
             sumOfMoney *= 1 + realProfitability;
         }
 
         return sumOfMoney;
+    }
+
+    /**
+     * Расчёт коэффициента инфляции
+     * @param index год
+     * @return возвращает коэффициент инфляции
+     */
+    private static double calculationOfTheInflationCoefficient(int index){
+        return Constants.INFLATION_RATE[index] / PERCENTAGE_100;
     }
 
     /**
