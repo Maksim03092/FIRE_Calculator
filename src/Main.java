@@ -1,5 +1,3 @@
-import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) throws WrongYearException {
         String year = Constants.SCANNER.next();
@@ -43,7 +41,7 @@ public class Main {
 
         for (int index = yearOfTheBeginningOfLifeOnInterest; index < Constants.MOEX_RATE .length - 1; index++) {
             realProfitability = calculationOfNominalProfitability(Constants.MOEX_RATE[index],
-                                                                  Constants.MOEX_RATE[index + 1]);
+                    Constants.MOEX_RATE[index + 1]);
             sumOfMoney -= percentageOfWithdrawal;
             percentageOfWithdrawal *= 1 + calculationOfTheInflationCoefficient(index);
             sumOfMoney *= 1 + realProfitability;
