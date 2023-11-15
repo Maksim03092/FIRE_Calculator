@@ -1,8 +1,8 @@
 import java.util.Scanner;
 
 public class Main {
-    private final static Scanner SCANNER = new Scanner(System.in);
-    private final static YearValidator YEAR_VALIDATOR = new YearValidator();
+    private static final Scanner SCANNER = new Scanner(System.in);
+    private static final YearValidator YEAR_VALIDATOR = new YearValidator();
     private static final int START_YEAR = 2002;
     private static final double MAXIMUM_SUM_OF_MONEY = 100;
     private static final double MINIMUM_SUM_OF_MONEY = 0;
