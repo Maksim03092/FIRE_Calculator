@@ -1,4 +1,15 @@
+import java.util.Scanner;
+
 public class Constants {
+    public static final Scanner SCANNER = new Scanner(System.in);
+    public static final YearValidator YEAR_VALIDATOR = new YearValidator();
+    public static final int START_YEAR = 2002;
+    public static final double MAXIMUM_SUM_OF_MONEY = 100;
+    public static final double MINIMUM_SUM_OF_MONEY = 0;
+    public static final double MINIMUM_WITHDRAWAL_PERCENTAGE = 0;
+    public static final double MAXIMUM_WITHDRAWAL_PERCENTAGE = 100;
+    public static final double WITHDRAWAL_PERCENTAGE_CHANGE_COEFFICIENT = 0.5;
+    public static final int PERCENTAGE_100 = 100;
     public static final double[] MOEX_RATE = {
             417.42,
             673.72,
