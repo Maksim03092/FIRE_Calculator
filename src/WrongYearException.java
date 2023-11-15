@@ -1,4 +1,4 @@
-public class WrongYear extends Exception{
+public class WrongYearException extends Exception{
     @Override
     public String getMessage() {
         return "Неправильно введена дата (дата должна быть в промежутке от 2002 до 2021 включительно)";

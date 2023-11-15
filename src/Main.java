@@ -4,15 +4,17 @@ public class Main {
     private final static Scanner SCANNER = new Scanner(System.in);
     private final static YearValidator YEAR_VALIDATOR = new YearValidator();
     private static final int START_YEAR = 2002;
-    private static final double SUM_OF_MONEY = 100;
+    private static final double MAXIMUM_SUM_OF_MONEY = 100;
+    private static final double MINIMUM_SUM_OF_MONEY = 0;
     private static final double MINIMUM_WITHDRAWAL_PERCENTAGE = 0;
-
-    public static void main(String[] args) throws WrongYear {
+    private static final double MAXIMUM_WITHDRAWAL_PERCENTAGE = 100;
+    private static final double WITHDRAWAL_PERCENTAGE_CHANGE_COEFFICIENT = 0.5;
+    public static void main(String[] args) throws WrongYearException {
         String year = SCANNER.next();
         SCANNER.close();
 
         if (!YEAR_VALIDATOR.isValid(year)) {
-            throw new WrongYear();
+            throw new WrongYearException();
         }
         int yearOfTheBeginningOfLifeOnInterest = Integer.parseInt(year) - START_YEAR;
         System.out.println(findingTheMaximizedWithdrawalPercentage(yearOfTheBeginningOfLifeOnInterest));
@@ -26,15 +28,15 @@ public class Main {
     public static double findingTheMaximizedWithdrawalPercentage(int yearOfTheBeginningOfLifeOnInterest) {
         double sumOfMoney, percentageOfWithdrawal = MINIMUM_WITHDRAWAL_PERCENTAGE;
 
-        while (percentageOfWithdrawal <= 100) {
+        while (percentageOfWithdrawal <= MAXIMUM_WITHDRAWAL_PERCENTAGE) {
             sumOfMoney = calculationOfTheRemainingBalance(yearOfTheBeginningOfLifeOnInterest, percentageOfWithdrawal);
-            if (sumOfMoney < 0) {
+            if (sumOfMoney < MINIMUM_SUM_OF_MONEY) {
                 break;
             }
-            percentageOfWithdrawal += 0.5;
+            percentageOfWithdrawal += WITHDRAWAL_PERCENTAGE_CHANGE_COEFFICIENT;
         }
 
-        return percentageOfWithdrawal - 0.5;
+        return percentageOfWithdrawal - WITHDRAWAL_PERCENTAGE_CHANGE_COEFFICIENT;
     }
 
     /**
@@ -45,7 +47,7 @@ public class Main {
      */
     private static double calculationOfTheRemainingBalance(int yearOfTheBeginningOfLifeOnInterest,
                                                            double percentageOfWithdrawal) {
-        double realProfitability, sumOfMoney = SUM_OF_MONEY;
+        double realProfitability, sumOfMoney = MAXIMUM_SUM_OF_MONEY;
 
         for (int index = yearOfTheBeginningOfLifeOnInterest; index < 20; index++) {
             realProfitability = calculationOfNominalProfitability(Constants.MOEX_RATE[index],
